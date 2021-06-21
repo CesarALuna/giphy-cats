@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Giphy API Tutorial</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Look at these cats!</h1>
+    </div>
+
+    <div class="cats">
+        <img src="#">
+    </div>
+
+    <div class="footer">
+        <div class="button">
+            <button class="newCat" id="newCat" onClick="window.location.reload();">
+                New Cat!
+            </button>
+        </div>
+    </div>
+
+    <div class="footer"></div>
+    <script>
+        const img = document.querySelector('img');
+        fetch('https://api.giphy.com/v1/gifs/translate?api_key=uraKGrI1Aung1eUSyxxyBKsn1G161vuJ&s=cats', {mode: 'cors'})
+        .then(function(response) {
+            return(response.json());
+        }).then(function(response) {
+            img.src = response.data.images.original.url;
+        });
+
+    </script>
+
+</body>
+</html>
